@@ -1,0 +1,83 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background: #0b0c1c;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Open Modal Button */
+.open-modal-btn {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.open-modal-btn:hover {
+    background: #0056b3;
+}
+
+/* Modal Overlay */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+/* Modal Box */
+.modal-box {
+    background: linear-gradient(135deg, #ffffff, #e6ecf5);
+    color: black;
+    padding: 20px;
+    width: 300px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Modal Icon */
+.modal-icon img {
+    width: 40px;
+    margin-bottom: 10px;
+}
+
+/* Buttons */
+.modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.logout-btn {
+    background: transparent;
+    color: #007bff;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.cancel-btn {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cancel-btn:hover {
+    background: #0056b3;
+}

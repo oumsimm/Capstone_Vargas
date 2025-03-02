@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+@import url("https://use.fontawesome.com/releases/v5.15.1/css/all.css");
+
+* {
+    margin: 10px;
+    padding:0px;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #25252b;
+    background-size: contain;
+    margin-left: 70px;
+    background-position: 0px;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url('https://files.oaiusercontent.com/file-FZU4HAa2uoVFYeFkbyyBxj?se=2025-02-27T12%3A26%3A19Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3Ddf8b7fee-23e6-4734-bea9-4c3a3c31c01c.webp&sig=WLEjjjJqnMnGKrCXGLNrzRwktPvP8u2N2gzlNywhTnQ%3D');
+}
+    /* background-image: url('https://www.negros-occ.gov.ph/wp-content/uploads/2022/05/murcia.png');
+
+
+/* Define a custom property for animation */
+@property --a {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+/* Neon Lightning Border Box */
+.box {
+    position: relative;
+    width: 400px;
+    padding: 40px;
+    background: #191919;
+    border-radius: 20px;
+    overflow: hidden;
+    filter: drop-shadow(0 15px 50px #000);
+}
+
+/* Animated Glowing Border */
+.box::before {
+    content: "";
+    position: absolute;
+    inset: -5px; /* Expands the border */
+    background: repeating-conic-gradient(
+        from var(--a),
+        #ff2770 0%,
+        #ff2770 10%,
+        transparent 15%,
+        transparent 40%,
+        #00d9ff 50%
+    );
+    border-radius: 20px;
+    filter: blur(10px);
+    z-index: -2;
+    animation: rotating 4s linear infinite;
+}
+
+/* Inner Dark Border */
+.box::after {
+    content: "";
+    position: absolute;
+    inset: 5px;
+    background: #111;
+    border-radius: 15px;
+    z-index: -1;
+}
+
+/* Neon Lightning Animation */
+@keyframes rotating {
+    0% {
+        --a: 0deg;
+    }
+    100% {
+        --a: 360deg;
+    }
+}
+
+/* Title */
+h2 {
+    color: #fff;
+    margin-bottom: 20px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+/* Input Fields */
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 25px;
+    background: #252525;
+    color: #fff;
+    outline: none;
+    text-align: center;
+    font-size: 16px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Submit Button */
+input[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 25px;
+    background: #00d9ff;
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    position: relative;
+    z-index: 1;
+}
+
+input[type="submit"]:hover {
+    background: #00a3cc;
+}
+
+/* Links */
+a {
+    display: block;
+    margin-top: 10px;
+    font-size: 14px;
+    text-decoration: none;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+a:first-of-type {
+    color: #aaa;
+}
+
+a:last-of-type {
+    color: #ff004f;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}

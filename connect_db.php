@@ -1,15 +1,16 @@
 <?php
 $host = "localhost";
-$user = "root"; // Default XAMPP username
-$password = ""; // Default is empty
-$database = "vargas_signup_db"; // Change to your database name
+$dbname = "vargas_signup_db";
+$username = "root";
+$password = ""; // Ensure this is an empty string if there's no password
 
-// Create connection
-$conn = new mysqli($host, $user, $password, $database);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
-echo "Connected successfully"; // Uncomment to test
+try {
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password, [
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+        PDO::ATTR_EMULATE_PREPARES => false
+    ]);
+} catch (PDOException $e) {
+    die("Database connection failed: " . $e->getMessage());
+}
 ?>

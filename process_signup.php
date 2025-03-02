@@ -15,15 +15,36 @@ if ($conn->connect_error) {
 
 // Insert data into database
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = $_POST['name'];
-    $email = $_POST['email'];
+    $name = trim($_POST['name']);
+    $email = trim($_POST['email']);
     $password = $_POST['password'];
     $confirm_password = $_POST['confirm_password'];
 
-    $sql = "INSERT INTO acc_mngment (Name, Email, Password, Confirm_password)  
-VALUES ('$name', '$email', '$password', '$confirm_password')";
+    // Check if passwords match
+    if ($password !== $confirm_password) {
+        die("Error: Passwords do not match.");
+    }
 
-    if ($conn->query($sql) === TRUE) {
+    // Hash the password before storing it
+    $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+    $hashedConfirmPassword = password_hash($confirm_password, PASSWORD_BCRYPT); // Secure confirm password
+
+    // Check if email already exists
+    $checkEmail = $conn->prepare("SELECT Email FROM acc_mngment WHERE Email = ?");
+    $checkEmail->bind_param("s", $email);
+    $checkEmail->execute();
+    $checkEmail->store_result();
+
+    if ($checkEmail->num_rows > 0) {
+        die("Error: Email already exists. Please use a different email.");
+    }
+    $checkEmail->close();
+
+    // Prepare and execute the SQL statement securely
+    $stmt = $conn->prepare("INSERT INTO acc_mngment (Name, Email, Password, Confirm_password) VALUES (?, ?, ?, ?)");
+    $stmt->bind_param("ssss", $name, $email, $hashedPassword, $hashedConfirmPassword);
+
+    if ($stmt->execute()) {
         echo "<!DOCTYPE html>
         <html lang='en'>
         <head>
@@ -58,10 +79,10 @@ VALUES ('$name', '$email', '$password', '$confirm_password')";
         </head>
         <body>
             <h2>Record added successfully!</h2>
-            <p>Redirecting to login page in <span class='countdown' id='countdown'>5</span> seconds...</p>
+            <p>Redirecting to login page in <span class='countdown' id='countdown'>3</span> seconds...</p>
             
             <script>
-                var timeLeft = 5;
+                var timeLeft = 3;
                 var countdownElement = document.getElementById('countdown');
 
                 var countdownTimer = setInterval(function() {
@@ -69,17 +90,18 @@ VALUES ('$name', '$email', '$password', '$confirm_password')";
                     countdownElement.textContent = timeLeft;
                     if (timeLeft <= 0) {
                         clearInterval(countdownTimer);
-                        window.location.href = 'Login.php';
+                        window.location.href = 'admin.php';
                     }
                 }, 1000);
             </script>
         </body>
         </html>";
     } else {
-        echo "Error: {$sql}<br>{$conn->error}";
+        echo "Error: {$stmt->error}";
     }
-}
 
-// Close connection
-$conn->close();
+    // Close the statement
+    $stmt->close();
+    $conn->close();
+}
 ?>

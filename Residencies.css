@@ -1,0 +1,96 @@
+ * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .dashboard {
+            display: flex;
+            width: 100%;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            width: 200px;
+            background: #333;
+            color: white;
+            padding: 20px;
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+        }
+
+        .sidebar .logo {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            padding: 12px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .sidebar ul li:hover,
+        .sidebar ul li.active {
+            background: #555;
+            border-radius: 5px;
+        }
+
+        .sidebar ul li.logout {
+            margin-top: 20px;
+            color: red;
+            font-weight: bold;
+        }
+
+        .sidebar ul li.logout:hover {
+            background: red;
+            color: white;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+            background: #f4f4f4;
+            width: calc(100% - 200px);
+            margin-left: 200px;
+            height: 100vh;
+            overflow-x: auto;
+        }
+
+        /* Table Styling */
+        .tables {
+            width: 100%;
+            max-width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: white;
+        }
+
+        .tables th, .tables td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+            white-space: nowrap;
+        }
+
+        .tables th {
+            background: #333;
+            color: white;
+            font-weight: bold;
+        }
+
+        .tables tr:hover {
+            background: #f1f1f1;
+        }

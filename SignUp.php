@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up Form</title>
-    <link rel="stylesheet" href="signup.css">
+    <link rel="stylesheet" href="Signup.css">
 </head>
 <body>
     <div class="form-container">
@@ -24,7 +24,7 @@
             
             <button type="submit">Sign Up</button>
         </form>
-        <p class="login-link">Already have an account? <a href="http://localhost/Vargas_capstone/Login.php">Log in</a></p>
+        <p class="login-link">Already have an account? <a href="http://localhost/Vargas_capstone/admin.php">Log in</a></p>
     </div>
 </body>
 </html>
